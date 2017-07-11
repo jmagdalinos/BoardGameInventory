@@ -356,7 +356,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
         // If this is a new board game and if all the fields in the editor are blank, return early
         if (mCurrentBoardGameUri == null && TextUtils.isEmpty(nameString) && TextUtils.isEmpty(yearString)
                 && TextUtils.isEmpty(playersString) && TextUtils.isEmpty(priceString) && TextUtils.isEmpty
-                (quantityString)) {
+                (quantityString) && mImageUri == null) {
             // No fields have been modified, so there is no need to save the new board game
             return;
         }
@@ -519,7 +519,12 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
                     ContentValues values = new ContentValues();
 
                     // Temporary variable to hold quantity
-                    int tempQuantity = Integer.parseInt(mQuantityEditText.getText().toString());
+                    int tempQuantity;
+                    if (TextUtils.isEmpty(mQuantityEditText.getText().toString())) {
+                        tempQuantity = 0;
+                    } else {
+                        tempQuantity= Integer.parseInt(mQuantityEditText.getText().toString());
+                    }
 
                     // Check which button was pressed
                     if (v.getId() == R.id.detail_button_increase) {
