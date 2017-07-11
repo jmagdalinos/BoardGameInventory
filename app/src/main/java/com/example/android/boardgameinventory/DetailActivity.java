@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.LoaderManager;
@@ -384,11 +385,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
                 mReadyToSave = false;
         }
 
-        if (mCurrentBoardGameUri != null) {
-            Toast.makeText(this, R.string.detail_null_image, Toast.LENGTH_SHORT).show();
-            mReadyToSave = false;
-        }
-
         // Name validation
         if (TextUtils.isEmpty(nameString)) {
             Toast.makeText(this, R.string.detail_null_name, Toast.LENGTH_SHORT).show();
@@ -492,10 +488,18 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
                     // No permissions, so return early
                     return;
                 }
-                Intent imageIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images
-                        .Media.EXTERNAL_CONTENT_URI);
-                // Make sure that the user selects only images
-                imageIntent.setType("image/*");
+
+                Intent imageIntent;
+
+                if (Build.VERSION.SDK_INT < 19) {
+                    imageIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                } else {
+                    imageIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images
+                            .Media.EXTERNAL_CONTENT_URI);
+                    // Make sure that the user selects only images
+                    imageIntent.setType("image/*");
+                }
+
                 if (imageIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(imageIntent, REQUEST_IMAGE_GET);
                 }
@@ -850,8 +854,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
         } else {
             // Use the placeholder image instead
             mImageView.setImageDrawable(getDrawable(R.drawable.no_image));
-            Toast.makeText(this, R.string.detail_null_image, Toast.LENGTH_SHORT).show();
-            mReadyToSave = false;
         }
 
         // Update the views on the screen with the values from the database
