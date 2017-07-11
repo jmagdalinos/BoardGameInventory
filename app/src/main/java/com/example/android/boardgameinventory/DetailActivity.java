@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -264,9 +263,10 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
             // Check if the image uri is null
             if (mImageUri != null) {
                 // Show the image on the imageView using the dimensions in the dimen.xml)
-                Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
-                        getResources().getDimensionPixelSize(R.dimen.image_size));
-                mImageView.setImageBitmap(selectedImage);
+//                Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
+//                        getResources().getDimensionPixelSize(R.dimen.image_size));
+//                mImageView.setImageBitmap(selectedImage);
+                mImageView.setImageURI(mImageUri);
             } else {
                 // Show the placeholder instead
                 mImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_image, null));
@@ -853,9 +853,10 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
         // Check if the image uri is null
         if (mImageUri != null) {
             // Show the image on the imageView using the dimensions in the dimen.xml)
-            Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
-                    getResources().getDimensionPixelSize(R.dimen.image_size));
-            mImageView.setImageBitmap(selectedImage);
+//            Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
+//                    getResources().getDimensionPixelSize(R.dimen.image_size));
+//            mImageView.setImageBitmap(selectedImage);
+            mImageView.setImageURI(mImageUri);
         } else {
             // Use the placeholder image instead
             mImageView.setImageDrawable(getDrawable(R.drawable.no_image));
@@ -916,9 +917,10 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
             // Check if the image uri is null
             if (mImageUri != null) {
                 // Show the image on the imageView using the dimensions in the dimen.xml)
-                Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
-                        getResources().getDimensionPixelSize(R.dimen.image_size));
-                mImageView.setImageBitmap(selectedImage);
+//                Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
+//                        getResources().getDimensionPixelSize(R.dimen.image_size));
+//                mImageView.setImageBitmap(selectedImage);
+                mImageView.setImageURI(mImageUri);
             } else {
                 // Show the placeholder instead
                 mImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_image, null));

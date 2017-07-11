@@ -218,7 +218,8 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager
     }
 
     /**
-     * TODO: add comments
+     * Creates a search dialog so the user can find a substring. It also has the option to clear
+     * the search and return to the full list.
      */
     private void showSearchDialog() {
         // Get the layout inflater

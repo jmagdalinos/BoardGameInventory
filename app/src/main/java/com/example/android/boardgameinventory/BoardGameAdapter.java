@@ -24,7 +24,7 @@ import static com.example.android.boardgameinventory.R.id.price;
  * It creates a list item for each row of the cursor's data
  */
 
-public class BoardGameAdapter extends CursorAdapter {
+public class BoardGameAdapter extends CursorAdapter{
 
     /** Variable holding board game name */
     private String mName;
@@ -116,7 +116,8 @@ public class BoardGameAdapter extends CursorAdapter {
                     context.getResources()
                             .getDimensionPixelSize(R.dimen.image_size),
                     context.getResources().getDimensionPixelSize(R.dimen.image_size));
-            pictureImageView.setImageBitmap(selectedImage);
+//            pictureImageView.setImageBitmap(selectedImage);
+//            pictureImageView.setImageURI(imageUri);
         } else {
             // Show the placeholder instead
             pictureImageView.setImageDrawable(context.getResources().getDrawable(R.drawable
@@ -151,4 +152,5 @@ public class BoardGameAdapter extends CursorAdapter {
             }
         });
     }
+
 }
