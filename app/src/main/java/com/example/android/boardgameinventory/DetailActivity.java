@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.CursorLoader;
@@ -262,10 +261,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
 
             // Check if the image uri is null
             if (mImageUri != null) {
-                // Show the image on the imageView using the dimensions in the dimen.xml)
-//                Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
-//                        getResources().getDimensionPixelSize(R.dimen.image_size));
-//                mImageView.setImageBitmap(selectedImage);
                 mImageView.setImageURI(mImageUri);
             } else {
                 // Show the placeholder instead
@@ -494,12 +489,13 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
                 if (Build.VERSION.SDK_INT < 19) {
                     imageIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 } else {
-                    imageIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images
-                            .Media.EXTERNAL_CONTENT_URI);
-                    // Make sure that the user selects only images
-                    imageIntent.setType("image/*");
+//                    imageIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images
+//                            .Media.EXTERNAL_CONTENT_URI);
+                    imageIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                    imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
                 }
-
+                // Make sure that the user selects only images
+                imageIntent.setType("image/*");
                 if (imageIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(imageIntent, REQUEST_IMAGE_GET);
                 }
@@ -852,10 +848,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
 
         // Check if the image uri is null
         if (mImageUri != null) {
-            // Show the image on the imageView using the dimensions in the dimen.xml)
-//            Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
-//                    getResources().getDimensionPixelSize(R.dimen.image_size));
-//            mImageView.setImageBitmap(selectedImage);
+            // Show the image on the imageView
             mImageView.setImageURI(mImageUri);
         } else {
             // Use the placeholder image instead
@@ -916,10 +909,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
 
             // Check if the image uri is null
             if (mImageUri != null) {
-                // Show the image on the imageView using the dimensions in the dimen.xml)
-//                Bitmap selectedImage = DownScaledImage.prepareBitmap(this, mImageUri, getResources().getDimensionPixelSize(R.dimen.image_size),
-//                        getResources().getDimensionPixelSize(R.dimen.image_size));
-//                mImageView.setImageBitmap(selectedImage);
+                // Show the image on the imageView
                 mImageView.setImageURI(mImageUri);
             } else {
                 // Show the placeholder instead

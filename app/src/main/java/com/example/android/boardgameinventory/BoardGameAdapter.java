@@ -4,7 +4,6 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -111,13 +110,8 @@ public class BoardGameAdapter extends CursorAdapter{
 
         // Check if the image uri is null
         if (imageUri != null) {
-            // Show the image on the imageView using the dimensions in the dimen.xml
-            Bitmap selectedImage = DownScaledImage.prepareBitmap(context, imageUri,
-                    context.getResources()
-                            .getDimensionPixelSize(R.dimen.image_size),
-                    context.getResources().getDimensionPixelSize(R.dimen.image_size));
-//            pictureImageView.setImageBitmap(selectedImage);
-//            pictureImageView.setImageURI(imageUri);
+            // Show the image on the imageView
+            pictureImageView.setImageURI(imageUri);
         } else {
             // Show the placeholder instead
             pictureImageView.setImageDrawable(context.getResources().getDrawable(R.drawable
@@ -152,5 +146,4 @@ public class BoardGameAdapter extends CursorAdapter{
             }
         });
     }
-
 }
