@@ -82,6 +82,7 @@
     <string name="detail_update_not_changed">No changes were made</string>
 
     <!-- Messages for null or invalid input -->
+    <string name="detail_null_image">Please insert valid image</string>
     <string name="detail_null_name">Please insert valid name</string>
     <string name="detail_null_year">Please insert valid publication year</string>
     <string name="detail_invalid_year">Please insert 4-digit year</string>

@@ -360,7 +360,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
             return;
         }
 
-        if (!mBoardGameHasChanged) {
+        if (!mBoardGameHasChanged && mReadyToSave) {
             // This is an existing board game but there has been no change, so there is no need
             // to save anything
             Toast.makeText(this, R.string.detail_update_not_changed, Toast.LENGTH_SHORT).show();
@@ -371,14 +371,24 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
         // Create a ContentValues object to save the input
         ContentValues values = new ContentValues();
 
-        // Save the supplier and image uri in the database
+        // Save the supplier in the database
         values.put(BoardGameEntry.COLUMN_BOARDGAME_SUPPLIER, mSupplier);
-        if (mImageUri != null) {
-            values.put(BoardGameEntry.COLUMN_BOARDGAME_PICTURE, String.valueOf(mImageUri));
-        }
 
         // Validate user's input.
         // If there is nothing in one or more of the fields, show toast message
+        // Image validation
+        if (mImageUri != null) {
+            values.put(BoardGameEntry.COLUMN_BOARDGAME_PICTURE, String.valueOf(mImageUri));
+        } else {
+                Toast.makeText(this, R.string.detail_null_image, Toast.LENGTH_SHORT).show();
+                mReadyToSave = false;
+        }
+
+        if (mCurrentBoardGameUri != null) {
+            Toast.makeText(this, R.string.detail_null_image, Toast.LENGTH_SHORT).show();
+            mReadyToSave = false;
+        }
+
         // Name validation
         if (TextUtils.isEmpty(nameString)) {
             Toast.makeText(this, R.string.detail_null_name, Toast.LENGTH_SHORT).show();
@@ -413,9 +423,10 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
             Toast.makeText(this, R.string.detail_null_price, Toast.LENGTH_SHORT).show();
             mReadyToSave = false;
         } else {
+            priceString = priceString.replace(",", ".");
             double priceDouble = Double.parseDouble(priceString);
-            // Convert double to integer by multiplying by 100
 
+            // Convert double to integer by multiplying by 100
             int priceInt = (int) (priceDouble * 100);
             values.put(BoardGameEntry.COLUMN_BOARDGAME_PRICE, priceInt);
         }
@@ -520,20 +531,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
                             tempQuantity = tempQuantity - mQuantityChange;
                         }
                     }
-
                         mQuantityEditText.setText(String.valueOf(tempQuantity));
                         quantity = tempQuantity;
-//                    if (mCurrentBoardGameUri != null) {
-//                        // Put new quantity in content values
-//                        values.put(BoardGameEntry.COLUMN_BOARDGAME_QUANTITY, tempQuantity);
-//
-//                        // Update database
-//                        int rowsUpdated = getContentResolver().update(mCurrentBoardGameUri, values, null,
-//                                null);
-//                    } else {
-//                        mQuantityEditText.setText(String.valueOf(tempQuantity));
-//                        quantity = tempQuantity;
-//                    }
                 }
             };
         }
@@ -839,6 +838,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
             mImageUri = Uri.parse(pictureString);
         } else {
             mImageUri = null;
+
         }
 
         // Check if the image uri is null
@@ -850,6 +850,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
         } else {
             // Use the placeholder image instead
             mImageView.setImageDrawable(getDrawable(R.drawable.no_image));
+            Toast.makeText(this, R.string.detail_null_image, Toast.LENGTH_SHORT).show();
+            mReadyToSave = false;
         }
 
         // Update the views on the screen with the values from the database
@@ -955,6 +957,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
                     NavUtils.navigateUpFromSameTask(DetailActivity.this);
                     return true;
                 }
+
                 // If there are unsaved changes, show dialog box informing the user
                 // Create a click listener to handle the user confirming that changes should be
                 // discarded.
@@ -991,7 +994,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
      */
     @Override
     public void onBackPressed() {
-        // If the board game hasn't changed, continue navigating up to parent activity
+        // If the board game hasn't changed, continue navigating up to
+        // parent activity
         if (!mBoardGameHasChanged) {
             super.onBackPressed();
             return;
