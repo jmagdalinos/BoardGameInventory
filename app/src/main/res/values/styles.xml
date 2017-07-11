@@ -1,0 +1,50 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!-- Styles for activity_detail.xml -->
+    <!-- Section Titles -->
+    <style name="section_titles">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:background">@color/sectionBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/list_item_internal_padding</item>
+    </style>
+
+    <!-- Board game name EditText -->
+    <style name="board_game_name">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:inputType">textMultiLine|textCapSentences</item>
+    </style>
+
+    <!-- EditTexts -->
+    <style name="edit_text_style">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/editTextColor</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:paddingLeft">@dimen/list_item_internal_padding</item>
+        <item name="android:paddingRight">@dimen/list_item_internal_padding</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- TextViews for board game attributes -->
+    <style name="attributes_text_view_style">
+        <item name="android:textColor">@color/textViewColor</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="buttons">
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

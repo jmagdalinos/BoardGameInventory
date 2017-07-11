@@ -1,0 +1,145 @@
+<resources>
+    <!-- App and activity names -->
+    <string name="app_name">Inventory</string>
+    <string name="title_add">Add a board game</string>
+    <string name="title_edit">Edit board game</string>
+
+    <!-- Strings for activity_catalog.xml -->
+    <string name="empty_text">Oops! No board games here...\nPlease use the add button to
+        begin populating the list</string>
+
+
+    <!-- Strings for list_item.xml & activity_detail.xml -->
+    <!-- TextView strings -->
+    <string name="detail_board_game_details">Board Game Details</string>
+    <string name="detail_other_details">Other details</string>
+    <string name="detail_title_tools">Tools</string>
+    <string name="list_item_publication">Year:</string>
+    <string name="list_item_quantity">Available:</string>
+    <string name="list_item_players">No. of players:</string>
+    <string name="list_item_year">Publication year:</string>
+    <string name="list_item_supplier">Supplier:</string>
+    <string name="list_item_price">Price:</string>
+    <string name="euro_sign">\u20ac</string>
+    <string name="change_quantity_by">Change quantity by:</string>
+
+    <!-- Button strings -->
+    <string name="sale">Sale</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="place_order">Place order</string>
+
+    <!-- Placeholders -->
+    <string name="list_item_placeholder_name">Board game Name</string>
+    <string name="list_item_placeholder_publication">2012</string>
+    <string name="list_item_placeholder_quantity">16</string>
+    <string name="list_item_placeholder_price">5.00 \u20ac</string>
+    <string name="list_item_placeholder_price_no_euro">5.00</string>
+    <string name="list_item_placeholder_players">2-5</string>
+    <string name="list_item_placeholder_year">2014</string>
+
+    <!-- Hints for EditTexts -->
+    <string name="name_hint">Enter board game name</string>
+    <string name="year_hint">2014</string>
+    <string name="players_hint">2-5</string>
+    <string name="price_hint">5.00</string>
+    <string name="quantity_hint">16</string>
+    <string name="change_quantity_hint">5</string>
+
+    <!-- Labels for dropdown menu -->
+    <string name="supplier_total_games">Total Games</string>
+    <string name="supplier_fantasy_extreme">Fantasy Extreme</string>
+    <string name="supplier_gameholic">GameHolic</string>
+    <string name="supplier_rared20">Rare D20</string>
+    <string name="supplier_leisure_gamer">Leisure Gamer</string>
+
+
+    <!-- Labels for  menus -->
+    <!-- Catalog menu -->
+    <string name="menu_search">Search</string>
+    <string name="menu_sort_data">Sort data</string>
+    <string name="menu_insert_dummy_data">Insert dummy data</string>
+    <string name="menu_delete_all_data">Delete all data</string>
+
+    <!-- Detail menu -->
+    <string name="menu_delete_board_game">Delete</string>
+    <string name="menu_save_board_game">Save</string>
+
+
+    <!-- Strings for toast messages -->
+    <!-- Messages for deletion -->
+    <string name="detail_delete_successful">Board game deleted</string>
+    <string name="detail_delete_error">Error deleting board game</string>
+
+    <!-- Messages for insertion -->
+    <string name="detail_insert_successful">Board game saved</string>
+    <string name="detail_insert_error">Error saving board game</string>
+    <string name="detail_insert_not_saved">Board game not saved</string>
+
+    <!-- Messages for update -->
+    <string name="detail_update_successful">Board game updated</string>
+    <string name="detail_update_error">Error updating board game</string>
+    <string name="detail_update_not_changed">No changes were made</string>
+
+    <!-- Messages for null or invalid input -->
+    <string name="detail_null_name">Please insert valid name</string>
+    <string name="detail_null_year">Please insert valid publication year</string>
+    <string name="detail_invalid_year">Please insert 4-digit year</string>
+    <string name="detail_null_players">Please insert valid no. of players</string>
+    <string name="detail_null_price">Please insert valid price</string>
+    <string name="detail_invalid_price">Please insert valid price</string>
+    <string name="detail_null_quantity">Please insert valid quantity</string>
+    <string name="detail_invalid_quantity">Please insert valid quantity</string>
+    <string name="detail_invalid_quantity_change">Please insert valid quantity change value</string>
+    <string name="detail_incomplete_form">Please complete the form with valid data</string>
+
+    
+    <!-- Strings for dialog boxes -->
+    <!-- Change quantity dialog -->
+    <string name="dialog_select_quantity_title">Select Order Quantity</string>
+    <string name="dialog_select_quantity">Please select order quantity</string>
+    <string name="dialog_positive">Accept</string>
+    <string name="dialog_negative">Cancel</string>
+
+    <!-- Delete confirmation dialog -->
+    <string name="delete_dialog_message">Do you really want to delete this board game?</string>
+    <string name="delete_dialog_delete">Delete</string>
+    <string name="delete_dialog_cancel">Cancel</string>
+
+    <!-- Unsaved changes confirmation dialog -->
+    <string name="unsaved_dialog_message">Do you really want to discard the changes to
+    the board game?</string>
+    <string name="unsaved_dialog_discard">Discard</string>
+    <string name="unsaved_dialog_keep_editing">Keep editing</string>
+    
+    <!-- Place an order before saving dialog -->
+    <string name="place_order_dialog_not_saved">Please save the changes to the board game before
+        continuing</string>
+    <string name="place_order_dialog_continue">Continue</string>
+    <string name="place_order_dialog_keep_editing">Keep Editing</string>
+
+    <!-- Sort by dialog -->
+    <string name="sort_by_list_label">Sort by:</string>
+    <!-- Labels for sort by options -->
+    <string name="sort_by_name_label">Name</string>
+    <string name="sort_by_price_label">Price</string>
+    <string name="sort_by_year_label">Year</string>
+    <!-- Positive and negative buttons -->
+    <string name="sort_by_positive_button">Ascending</string>
+    <string name="sort_by_negative_button">Descending</string>
+
+    <!-- Search dialog -->
+    <string name="search_label">Search for:</string>
+    <!-- Positive and negative buttons -->
+    <string name="search_positive_button">Search</string>
+    <string name="search_negative_button">Cancel</string>
+    <string name="search_neutral_button">Clear Search</string>
+    
+    
+    <!-- Strings for email intent -->
+    <string name="email_subject">New order from BoardGamesForAll ltd</string>
+    <string name="email_body_start">Dear Madams and Sirs,\n\nWe are happy to place the
+        following order:\n\n</string>
+    <string name="email_body_end">\n\nThank you in advance.\n\nBest Regards,\nJohn
+        Magdalinos</string>
+</resources>

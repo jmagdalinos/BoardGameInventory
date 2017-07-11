@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main colors -->
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#689F38</color>
+    <color name="colorAccent">#33691E</color>
+
+    <!-- Color for attribute text views -->
+    <color name="textViewColor">#424242</color>
+
+    <!-- Color for attribute edit texts -->
+    <color name="editTextColor">@color/colorPrimaryDark</color>
+
+    <!-- Hint Color for attribute edit texts -->
+    <color name="textColorHint">#BDBDBD</color>
+
+    <!-- Color for section titles in activity_detail.xml -->
+    <color name="sectionBackground">#C5E1A5</color>
+</resources>

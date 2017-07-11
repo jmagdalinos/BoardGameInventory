@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailActivity">
+
+    <item
+        android:id="@+id/action_save_board_game"
+        android:title="@string/menu_save_board_game"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_save_white_24dp"/>
+
+    <item
+        android:id="@+id/action_delete_board_game"
+        android:title="@string/menu_delete_board_game"
+        app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,108 @@
+<resources>
+    <!-- String Array for sorting preferences -->
+    <string-array name="settings_sort_by_labels">
+        <item>@string/sort_by_name_label</item>
+        <item>@string/sort_by_price_label</item>
+        <item>@string/sort_by_year_label</item>
+    </string-array>
+
+    <!-- String Array for suppliers -->
+    <!-- Supplier Name -->
+    <string-array name="supplier_names">
+        <item>Total Games</item>
+        <item>Fantasy Extreme</item>
+        <item>GameHolic</item>
+        <item>Rare D20</item>
+        <item>Leisure Gamer</item>
+    </string-array>
+    <!-- Supplier email -->
+    <string-array name="supplier_email">
+        <item>purchase@totalgames.net</item>
+        <item>supply@fantasyextreme.com</item>
+        <item>orders@gameholic.com</item>
+        <item>shop@rared20.net</item>
+        <item>order@leisuregamer.com</item>
+    </string-array>
+
+
+    <!-- Integer Array for dummy entries -->
+    <integer-array name="dummy_years">
+        <item>2011</item>
+        <item>2008</item>
+        <item>2011</item>
+        <item>2005</item>
+        <item>2016</item>
+        <item>2011</item>
+        <item>2016</item>
+        <item>2013</item>
+        <item>2005</item>
+        <item>2016</item>
+    </integer-array>
+
+    <integer-array name="dummy_prices">
+        <item>6000</item>
+        <item>4050</item>
+        <item>3840</item>
+        <item>1560</item>
+        <item>1850</item>
+        <item>2300</item>
+        <item>4580</item>
+        <item>5240</item>
+        <item>2140</item>
+        <item>2550</item>
+    </integer-array>
+
+    <integer-array name="dummy_quantities">
+        <item>15</item>
+        <item>12</item>
+        <item>5</item>
+        <item>8</item>
+        <item>0</item>
+        <item>7</item>
+        <item>25</item>
+        <item>14</item>
+        <item>29</item>
+        <item>18</item>
+    </integer-array>
+
+    <integer-array name="dummy_suppliers">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>2</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+        <item>0</item>
+        <item>4</item>
+    </integer-array>
+
+
+    <!-- String Arrays for dummy entries -->
+    <string-array name="dummy_names">
+        <item>Dungeons &amp; Dragons: Wrath of Ashardalon Board Game</item>
+        <item>Dominion</item>
+        <item>Last Will</item>
+        <item>Twilight Struggle</item>
+        <item>Star Wars: Rebellion</item>
+        <item>Eclipse</item>
+        <item>Mansions of Madness: Second Edition</item>
+        <item>Concordia</item>
+        <item>Twilight Imperium (Third Edition)</item>
+        <item>Santorini</item>
+    </string-array>
+
+    <string-array name="dummy_players">
+        <item>1-5</item>
+        <item>2-4</item>
+        <item>2-5</item>
+        <item>2</item>
+        <item>2-4</item>
+        <item>2-6</item>
+        <item>1-5</item>
+        <item>2-5</item>
+        <item>3-6</item>
+        <item>2-4</item>
+    </string-array>
+</resources>
