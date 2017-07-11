@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.example.android.boardgameinventory.data.BoardGameContract.BoardGameEntry;
 
+import java.util.concurrent.ExecutionException;
+
 import static com.example.android.boardgameinventory.R.id.price;
 
 /**
@@ -111,7 +113,15 @@ public class BoardGameAdapter extends CursorAdapter{
         // Check if the image uri is null
         if (imageUri != null) {
             // Show the image on the imageView
-            pictureImageView.setImageURI(imageUri);
+            DownScaledImage downScaledImage = new DownScaledImage(context, imageUri, 120, 120);
+            downScaledImage.execute();
+            try {
+                pictureImageView.setImageBitmap(downScaledImage.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         } else {
             // Show the placeholder instead
             pictureImageView.setImageDrawable(context.getResources().getDrawable(R.drawable

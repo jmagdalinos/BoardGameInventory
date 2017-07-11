@@ -34,7 +34,7 @@
                 android:padding="@dimen/list_item_internal_padding"
                 android:layout_marginRight="@dimen/list_item_internal_padding"
                 android:layout_gravity="center_vertical"
-                android:scaleType="fitCenter"
+                android:scaleType="center"
                 android:src="@drawable/no_image"/>
 
             <LinearLayout

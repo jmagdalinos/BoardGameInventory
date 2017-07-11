@@ -117,7 +117,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager
                 ContextCompat.checkSelfPermission(this, Manifest.permission
                         .WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             // No explanation needed, we can request the permission.
-
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission
                             .READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST);

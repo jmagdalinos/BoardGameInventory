@@ -33,6 +33,8 @@ import android.widget.Toast;
 
 import com.example.android.boardgameinventory.data.BoardGameContract.BoardGameEntry;
 
+import java.util.concurrent.ExecutionException;
+
 /**
  * Allows user to add a new board game or edit an existing one
  */
@@ -261,7 +263,16 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
 
             // Check if the image uri is null
             if (mImageUri != null) {
-                mImageView.setImageURI(mImageUri);
+                // Show the image on the imageView
+                DownScaledImage downScaledImage = new DownScaledImage(this, mImageUri, 240, 240);
+                downScaledImage.execute();
+                try {
+                    mImageView.setImageBitmap(downScaledImage.get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
             } else {
                 // Show the placeholder instead
                 mImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_image, null));
@@ -849,7 +860,15 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
         // Check if the image uri is null
         if (mImageUri != null) {
             // Show the image on the imageView
-            mImageView.setImageURI(mImageUri);
+            DownScaledImage downScaledImage = new DownScaledImage(this, mImageUri, 240, 240);
+            downScaledImage.execute();
+            try {
+                mImageView.setImageBitmap(downScaledImage.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         } else {
             // Use the placeholder image instead
             mImageView.setImageDrawable(getDrawable(R.drawable.no_image));
@@ -910,7 +929,15 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager
             // Check if the image uri is null
             if (mImageUri != null) {
                 // Show the image on the imageView
-                mImageView.setImageURI(mImageUri);
+                DownScaledImage downScaledImage = new DownScaledImage(this, mImageUri, 240, 240);
+                downScaledImage.execute();
+                try {
+                    mImageView.setImageBitmap(downScaledImage.get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
             } else {
                 // Show the placeholder instead
                 mImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_image, null));
